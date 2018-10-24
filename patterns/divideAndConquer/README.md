@@ -1,0 +1,1 @@
+Divide and Conquer - Break problem into smaller easier problems

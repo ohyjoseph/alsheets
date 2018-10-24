@@ -1,0 +1,1 @@
+Closures - essentially used to set up a local environment for a given function. If returned function needs to continue to be callable after first call then return returned function. Similar to recursion.

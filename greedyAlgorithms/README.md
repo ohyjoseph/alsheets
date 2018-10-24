@@ -1,0 +1,1 @@
+Used when local optimal choice leads to global optimal choice.

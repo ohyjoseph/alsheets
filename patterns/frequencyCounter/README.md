@@ -1,0 +1,1 @@
+Frequency Counter - used when needing to count occurences. Making an object out of an array for faster access time
