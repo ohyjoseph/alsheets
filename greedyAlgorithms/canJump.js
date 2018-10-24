@@ -10,7 +10,7 @@ function canJump(jumpsArray) {
   let leftMostValid = jumpsArray.length - 1;
   for (let i = jumpsArray.length - 1; i >= 0; i--) {
     let maxJump = jumpsArray[i];
-    let maxIndex = i + jumpsArray[i];
+    let maxIndex = i + maxJump;
     if (maxIndex >= leftMostValid) {
       if (i === 0) return true;
       leftMostValid = i;
