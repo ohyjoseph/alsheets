@@ -2,10 +2,10 @@
 //Each element in the array represents your maximum jump length at that position.
 //Determine if you are able to reach the last index from the 0th index.
 
-//Loop through array backwards and continuously determine the left most valid index
-//that is capable of reaching the last index
-//If index is capable of reaching last index then any indexes that are capable of
-//reaching said index is also valid
+//Loop through array backwards and continuously determine the left most valid index that is capable of reaching the last index
+//If index is capable of reaching last index then any indexes that are capable of reaching said index is also valid
+
+//Time: O(n) Space: O(1)
 function canJump(jumpsArray) {
   let leftMostValid = jumpsArray.length - 1;
   for (let i = jumpsArray.length - 1; i >= 0; i--) {
