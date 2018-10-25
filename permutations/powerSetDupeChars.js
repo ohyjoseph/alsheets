@@ -11,10 +11,11 @@ function powerSumDupeChars(string) {
     for (let [char, amount] of map) {
       if (localIndex >= index && amount > 0) { //localIndex used so to not revisit chars
         map.set(char, amount - 1);
+        let nextString = currentString + char;
         if (amount > 0) {
-          recurse(currentString + char, localIndex);
+          recurse(nextString, localIndex);
         } else {
-          recurse(currentString + char, localIndex + 1);
+          recurse(nextString, localIndex + 1);
         }
         map.set(char, amount);
       }

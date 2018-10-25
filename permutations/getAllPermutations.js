@@ -7,9 +7,9 @@ function getAllPermutations(string) {
     output.push(currentString);
     for (let [char, amount] of map) {
       if (amount > 0) {
-        let newString = currentString + char;
+        let nextString = currentString + char;
         map.set(char, amount - 1);
-        recurse(newString);
+        recurse(nextString);
         map.set(char, amount);
       }
     }
@@ -27,4 +27,4 @@ function mapFromString(string) {
   }
   return map;
 }
-console.log(getAllPermutations('abb')); //[ '', 'a', 'ab', 'abb', 'b', 'bb' ]
+console.log(getAllPermutations('abb')); //[ '', 'a', 'ab', 'abb', 'b', 'ba', 'bab', 'bb', 'bba' ]

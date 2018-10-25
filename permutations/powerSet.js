@@ -2,7 +2,7 @@
 //Assume all chars unique. If chars non-unique then array will contain duplicates
 //Time: O(2ⁿ) Space: O(2ⁿ)
 //Iterative
-function powerSet(string) {
+function powerSetI(string) {
   const output = [''];
   for (let char of string) {
     let length = output.length;
@@ -13,15 +13,16 @@ function powerSet(string) {
   return output;
 }
 //Recursive
-function powerSet(string) {
+function powerSetR(string) {
   const output = [];
   recurse();
   return output;
   function recurse(currentString = '', currentIndex = 0) {
     output.push(currentString);
     for (let i = currentIndex; i < string.length; i++) {
-      recurse(currentString + string[i], i + 1);
+      let nextString = currentString + string[i];
+      recurse(nextString, i + 1);
     }
   }
 }
-console.log(powerSet('abc')); //[ '', 'a', 'ab', 'abc', 'ac', 'b', 'bc', 'c' ]
+console.log(powerSetI('abc')); //[ '', 'a', 'ab', 'abc', 'ac', 'b', 'bc', 'c' ]
