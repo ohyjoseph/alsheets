@@ -6,7 +6,7 @@ function getAllPermutations(string) {
   function recurse(currentString = '') {
     output.push(currentString);
     for (let [char, amount] of map) {
-      if (amount > 0) {
+      if (amount > 0) { //makes sure to not reuse used chars
         let nextString = currentString + char;
         map.set(char, amount - 1);
         recurse(nextString);

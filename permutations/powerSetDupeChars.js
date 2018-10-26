@@ -9,8 +9,8 @@ function powerSumDupeChars(string) {
     let localIndex = 0;
     for (let [char, amount] of map) {
       if (localIndex >= index && amount > 0) { //localIndex used so to not revisit chars
-        map.set(char, amount - 1);
         let nextString = currentString + char;
+        map.set(char, amount - 1);
         if (amount > 0) { //if duplicate character exists makes sure to visit it
           recurse(nextString, localIndex);
         } else {

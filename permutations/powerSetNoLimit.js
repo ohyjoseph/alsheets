@@ -3,8 +3,7 @@
 //Time: O(2ⁿ) Space: O(2ⁿ)
 
 function powerSetNoLimit(string, lengthLimit = 1) {
-  let filteredString = filterOutStringDupes(string);
-  console.log(filteredString)
+  let filteredString = filterOutStringDupes(string); //only needed if input has non-unique chars
   const output = [];
   recurse();
   return output;
