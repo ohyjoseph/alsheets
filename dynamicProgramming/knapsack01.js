@@ -31,5 +31,25 @@ function knapsack01(items, maxCapacity) {
   console.log(memo);
   return memo[memo.length - 1][memo[memo.length - 1].length - 1]
 }
+
+//Answer using similar algorithm to permutations/powerSet.js
+//Much slower
+function knapsack01PowerSet(items, maxCapacity) {
+  let maxValue = -Infinity;
+  recurse();
+  return maxValue;
+  function recurse(currentValue = 0, currentWeight = 0, currentIndex = 0) {
+    if (currentWeight > maxCapacity) return;
+    maxValue = Math.max(maxValue, currentValue);
+    for (let i = currentIndex; i < items.length; i++) {
+      let itemValue = items[i].value;
+      let itemWeight = items[i].weight;
+      let nextValue = currentValue + itemValue;
+      let nextWeight = currentWeight + itemWeight;
+      recurse(nextValue, nextWeight, i + 1);
+    }
+  }
+}
+
 items = [{ weight: 10, value: 7 }, { weight: 6, value: 4 }, { weight: 8, value: 5 }, { weight: 2, value: 1 }]
 console.log(knapsack01(items, 14)); //9
