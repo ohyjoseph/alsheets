@@ -1,4 +1,5 @@
 //Return array with all permutations where character order matters of a string and each character can be used unlimitedly
+//Most time and space intensive out of all permutations
 function getAllPermutationsNoLimit(string, lengthLimit = 1) {
   const set = setFromString(string);
   const output = [];

@@ -1,5 +1,6 @@
 //Return array with all permutations where character order doesn't matter of a string
 //Assume all chars unique. If chars non-unique then array will contain duplicates
+//Least time and space intensive out of all permutations
 //Time: O(2ⁿ) Space: O(2ⁿ)
 //Iterative
 function powerSetI(string) {
