@@ -1,1 +1,1 @@
-Multiple Pointers - have 1 pointer at start, 1 at end and gradually close in on target. Generally only works on sorted array
+Multiple Pointers - have 1 pointer at start, 1 at end and gradually close in on target. Generally only works on sorted array.
