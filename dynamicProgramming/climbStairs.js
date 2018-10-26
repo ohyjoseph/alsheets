@@ -19,3 +19,22 @@ function climbStairs(n) {
   }
   return current;
 }
+
+//Answer using similar algorithm to permutations/getAllPermutationsNoLimit.js
+//Much slower
+function climbStairsPermutation(n) {
+  let count = 0;
+  const set = new Set([1, 2]);
+  recurse()
+  function recurse(currentStep = 0) {
+    if (currentStep === n) count++;
+    if (currentStep >= n) return;
+    for (let num of set) {
+      let nextStep = currentStep + num;
+      recurse(nextStep);
+    }
+  }
+  return count;
+}
+
+console.log(climbStairs(10)); //89
