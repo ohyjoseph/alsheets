@@ -1,35 +1,35 @@
 //Knapsack01 like
-//For a list of items with weight and value, maximize value for a giving weight capacity
+//For a list of items with weight and value, maximize value for a given weight capacity
 function knapsack01(items, maxCapacity) {
   //Pick highest value while gradually adding more items and increasing capacity
   //items.sort((a, b) => a.weight - b.weight)
-  const memo = [];
+  const maxValues = []; //each row represents considering an additional item. Each column represents a capacity
   //for each item loop through 0 to maxCapacity
   for (let itemI = 0; itemI < items.length; itemI++) {
-    let weight = items[itemI].weight;
-    let value = items[itemI].value;
+    let itemWeight = items[itemI].weight;
+    let itemValue = items[itemI].value;
     let row = [];
-    for (let capacity = 0; capacity <= maxCapacity; capacity++) {
+    for (let currentCapacity = 0; currentCapacity <= maxCapacity; currentCapacity++) {
       if (itemI !== 0) { //all rows besides first
-        let prevBest = memo[itemI - 1][capacity];
-        let minusWeightBest = memo[itemI - 1][capacity - weight];
-        if (capacity >= weight) {
-          if (minusWeightBest !== undefined) {
-            row.push(Math.max(prevBest, value + minusWeightBest));
-          } else {
-            row.push(Math.max(prevBest, value));
+        let prevMax = maxValues[itemI - 1][currentCapacity]; //gets max value before considering this item
+        let minusItemWeightMax = maxValues[itemI - 1][currentCapacity - itemWeight]; //gets max value minus this item's weight to make itemValue plus it valid
+        if (itemWeight <= currentCapacity) { //if enough room in bag to add current item
+          if (minusItemWeightMax !== undefined) {
+            row.push(Math.max(prevMax, itemValue + minusItemWeightMax));
+          } else { //if only enough room for this item choose max value between this item's value and previous max value without this item
+            row.push(Math.max(prevMax, itemValue));
           }
-        } else {
-          row.push(prevBest);
+        } else { //if not enough room in bag then max value is previous max without adding in this item
+          row.push(prevMax);
         }
       } else { //first row
-        capacity >= weight ? row.push(value) : row.push(0);
+        currentCapacity >= itemWeight ? row.push(itemValue) : row.push(0); //if can fit in item then use item. Otherwise value is 0
       }
     }
-    memo.push(row);
+    maxValues.push(row);
   }
-  console.log(memo);
-  return memo[memo.length - 1][memo[memo.length - 1].length - 1]
+  console.log(maxValues);
+  return maxValues[maxValues.length - 1][maxValues[maxValues.length - 1].length - 1]
 }
 
 //Answer using similar algorithm to permutations/powerSet.js
