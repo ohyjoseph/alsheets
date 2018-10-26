@@ -1,5 +1,7 @@
 //Knapsack01 like
 //For a list of items with weight and value, maximize value for a given weight capacity
+//Can also be considered a greedy algorithm
+//Choosing the greedy solution for each item added for every capacity possible
 function knapsack01(items, maxCapacity) {
   //Pick highest value while gradually adding more items and increasing capacity
   //items.sort((a, b) => a.weight - b.weight)
