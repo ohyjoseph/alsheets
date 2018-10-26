@@ -1,4 +1,4 @@
-//Return array with all permutations where character order matters of a string
+//Return array with all unique permutations where character order matters of a string
 function getAllPermutations(string) {
   const map = mapFromString(string);
   const output = [];

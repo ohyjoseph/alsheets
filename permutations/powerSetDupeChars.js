@@ -1,4 +1,4 @@
-//Return array with all permutations where character order doesn't matter of a string and chars in input don’t have to be unique
+//Return array with all unique permutations where character order doesn't matter of a string and chars in input don’t have to be unique
 function powerSumDupeChars(string) {
   const output = [];
   const map = mapString(string);

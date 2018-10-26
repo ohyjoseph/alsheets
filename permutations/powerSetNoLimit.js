@@ -1,4 +1,4 @@
-//Return array with all permutations where character order doesn't matter of a string and each character can be used unlimitedly
+//Return array with all unique permutations where character order doesn't matter of a string and each character can be used unlimitedly
 //Assume all chars unique. If chars non-unique then array will contain duplicates
 //Time: O(2ⁿ) Space: O(2ⁿ)
 
