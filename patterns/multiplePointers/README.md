@@ -1,1 +1,2 @@
-Multiple Pointers - have 1 pointer at start, 1 at end and gradually close in on target. Generally only works on sorted array.
+Multiple Pointers - have 1 pointer at start, 1 at end and gradually close in on target. Generally only works on sorted array. <br />
+Similar to sliding window but just use values at 2 pointers instead of pointers and everything inbetween
