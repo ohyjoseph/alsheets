@@ -1,31 +1,31 @@
-//Determine if a subArray exists that sum up to target value
+//Determine if an array with non-negative numbers contains a subArray that sums up to target value
 //Note: Subarray means the indices are contiguous
-//sliding window with window resizing array.length times
-//Time: O(n²) Space: O(n)
+
+//Time: O(n) Space: O(1)
 function sumExistsInSubArray(array, target) {
-  //start with smallest window and stop when window is array.length
-  //after inner loop increase window size by one
-  //inner loop while highI < array.size
-  //go until initialHigh is size of array
-  for (let initialHigh = 0; initialHigh < array.length; initialHigh++) {
-    let highI = initialHigh;
-    let lowI = 0;
-    //set initial sum
-    let sum = 0;
-    for (let i = 0; i <= highI; i++) {
-      sum += array[i];
+  let removeI = 0;
+  let addI = 0;
+  let sum;
+  while (addI <= array.length) { //instead of re-summing every loop, just remove what's not needed and add what is when necessary
+    let removeValue = array[removeI];
+    let addValue = array[addI];
+    if (addI === removeI) {
+      sum = addValue;
+      addI++;
     }
-    if (sum === target) return true;
-    while (highI < array.length - 1) {
-      //Instead of remaking sum every iteration subtract start num and add end num
-      let removeValue = array[lowI];
-      highI++;
-      lowI++;
-      let addValue = array[highI];
+    else if (sum === target) {
+      return true;
+    }
+    else if (sum < target) { //increase window size
+      sum += addValue; //sum might equal NaN because addI could be out of index but doesn't matter because loop will end right after
+      addI++;
+    } else { //decrease window size
       sum -= removeValue;
-      sum += addValue;
-      if (sum === target) return true;
+      removeI++;
     }
   }
   return false;
 }
+console.log(sumExistsInSubArray([4,0,5,5], 14)); //true
+console.log(sumExistsInSubArray([4,0,5,5], 9)); //true
+console.log(sumExistsInSubArray([6,1,5,2], 10)); //false
