@@ -1,4 +1,5 @@
 //Given a sorted array determine if a pair of numbers average to target value
+
 //Time: O(n) Space: O(1)
 function averagePair(sortedNums, targetAverage) {
   const target = targetAverage * 2;

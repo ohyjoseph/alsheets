@@ -1,4 +1,5 @@
 //Determine if 2nd string is anagram of 1st string
+
 //Time: O(n) Space: O(n)
 function validAnagram(string1, string2) {
   const map = new Map(); //Map is very similar to an object

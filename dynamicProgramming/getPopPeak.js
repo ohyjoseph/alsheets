@@ -1,5 +1,6 @@
 //Find the peak population year given an array of tuples containing birth years and death years
 //Assume births occur at the very beginning of a year and deaths occur at the very end of a year
+
 //Time: O(numYears + arrayLength) Space: O(numYears + arrayLength)
 function getPopPeak(peopleArray) {
   let [minYear, maxYear] = getEdgeBirthYears(peopleArray);
