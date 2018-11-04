@@ -3,7 +3,7 @@
 //Time: O(2ⁿ) Space: O(2ⁿ)
 
 function powerSetNoLimit(string, lengthLimit = 1) {
-  let filteredString = filterOutStringDupes(string); //only needed if input has non-unique chars
+  let filteredString = getUniqueString(string); //only needed if input has non-unique chars
   const output = [];
   recurse();
   return output;
@@ -16,16 +16,16 @@ function powerSetNoLimit(string, lengthLimit = 1) {
     }
   }
 }
-
-function filterOutStringDupes(string) {
+function getUniqueString(string) {
   const set = new Set();
-  let filteredString = '';
+  let outputString = '';
   for (let char of string) {
     if (!set.has(char)) {
-      filteredString += char;
+      outputString += char;
       set.add(char);
     }
   }
-  return filteredString;
+  return outputString;
 }
+
 console.log(powerSetNoLimit('ab', 3)); //['', 'a', 'aa', 'aaa', 'aab', 'ab', 'abb', 'b', 'bb', 'bbb']​​​​
