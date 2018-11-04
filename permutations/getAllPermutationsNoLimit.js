@@ -1,23 +1,27 @@
 //Return array with all unique permutations where character order matters of a string and each character can be used unlimitedly
 //Most time and space intensive out of all permutations
 function getAllPermutationsNoLimit(string, lengthLimit = 1) {
-  const set = setFromString(string); //only needed if input has non-unique chars
+  const uniqueString = getUniqueString(string); //only needed if input has non-unique chars
   const output = [];
   recurse()
   function recurse(currentString = '') {
     if (currentString.length > lengthLimit) return;
     output.push(currentString);
-    for (let char of set) {
+    for (let char of uniqueString) {
       let nextString = currentString + char;
       recurse(nextString);
     }
   }
   return output;
 }
-function setFromString(string) {
+function getUniqueString(string) {
   const set = new Set();
+  let outputString = '';
   for (let char of string) {
-    set.add(char);
+    if (!set.has(char)) {
+      outputString 
+      set.add(char);
+    }
   }
   return set;
 }
