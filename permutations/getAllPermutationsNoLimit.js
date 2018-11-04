@@ -19,10 +19,10 @@ function getUniqueString(string) {
   let outputString = '';
   for (let char of string) {
     if (!set.has(char)) {
-      outputString 
+      outputString += char;
       set.add(char);
     }
   }
-  return set;
+  return outputString;
 }
 console.log(getAllPermutationsNoLimit('ab', 3)); //​​​​​['',​​​​​​​​ 'a',​​​​​ 'aa', 'aaa', 'aab', 'ab', 'aba', 'abb', 'b', 'ba', 'baa', 'bab', 'bb', 'bba', 'bbb']​​​​​
