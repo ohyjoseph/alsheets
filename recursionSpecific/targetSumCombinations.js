@@ -1,6 +1,6 @@
 //Find all unique sets that use a given amount of numbers that sum to a given target
 
-//Time: O(nums ^(numsUsed-1)) Space: O(nums)
+//Time: O(numsUsed * nums ^(numsUsed-1)) Space: O(nums)
 function targetSumCombinations(nums, target = 0, numsUsed = 3) {
   if (numsUsed === 1) {
     if (nums.includes(target)) return [target];
@@ -23,8 +23,8 @@ function targetSumCombinations(nums, target = 0, numsUsed = 3) {
       if (iteration >= numsUsed - 1) {
         let needed = target - prevNums.reduce((total, num) => total + num, 0); //the num needed to match the target
         if (tempSet.has(needed)) { //check the set of previously stored nums of this iteration to see if it matches the needed num
-          let numArray = [...prevNums, needed];
-          stringNums = numArray.toString();
+          let numArray = [...prevNums, needed]; //linear in terms of numsUsed
+          stringNums = numArray.toString(); //reason why time complexity has numsUsed *
           if (!setput.has(stringNums)) {
             output.push(numArray);
             setput.add(stringNums);
