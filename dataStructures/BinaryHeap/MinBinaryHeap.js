@@ -54,4 +54,7 @@ let minHeap = new MinBinaryHeap();
 minHeap.insert(6);
 minHeap.insert(4);
 minHeap.insert(9);
-console.log(minHeap.heap);
+minHeap.insert(3);
+minHeap.insert(1);
+minHeap.removeRoot();
+console.log(minHeap.heap); //[3, 4, 9, 6]

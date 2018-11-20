@@ -8,7 +8,7 @@ function climbStairs(n) {
   }
   return solutions[n];
 }
-//Time: O(n) Space: O(1)
+//Time: O(n) Space: O(possible steps taken at a time)
 function climbStairs(n) {
   if (n === 0 || n === 1) return n;
   let oldest = 1; let old = 2;

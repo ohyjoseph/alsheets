@@ -11,7 +11,7 @@ function longestUniqueCharSubstrings(string) {
   while (addI < string.length) { //instead of re-iterating every loop, just remove char if next one to be added is already in set otherwise add next char to set
     let removeChar = string[removeI];
     let addChar = string[addI];
-    if (addI === removeI || !set.has(addChar)) {
+    if (removeI === addI || !set.has(addChar)) {
       set.add(addChar);
       let currentLength = addI - removeI + 1;
       let longestLength = longestIndices[1] - longestIndices[0] + 1;
