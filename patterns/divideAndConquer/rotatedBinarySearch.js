@@ -38,7 +38,9 @@ function findPivotSide(array, leftI, middleI, rightI) {
   else return 0; //no pivot
 }
 
-array = [10,12,1,4,5,6,7];
-array2 = [5,6,7,10,12,1,4];
-array3 = [7,10,12,1,4,6];
-console.log(rotatedBinarySearch(array3, 7));
+array = [10, 12, 1, 4, 5, 6, 7];
+array2 = [5, 6, 7, 10, 12, 1, 4];
+array3 = [7, 10, 12, 1, 4, 6];
+console.log(rotatedBinarySearch(array, 7)); //6
+console.log(rotatedBinarySearch(array2, 7));//2
+console.log(rotatedBinarySearch(array3, 7));//0
